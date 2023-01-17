@@ -43,7 +43,7 @@ const userSchema = new mongoose.Schema({
         type:String,
         default:null,
         min:4,
-        max:255
+        max:255   
     },
     status:{
         type: Boolean,
