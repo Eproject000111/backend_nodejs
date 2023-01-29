@@ -1,18 +1,17 @@
 const mongoose = require("mongoose");
 
-const optionsSchema = new mongoose.Schema({
+//  In the option there can be color, size;
+
+const optionGroupsSchema = new mongoose.Schema({
     name:{
         type: String,
         max:50
-    },
-    optionsGroupId:{
-        type:Number    // Here will be relation with optionsGroup
     }
 },
 {
     timestamps:true
 })
 
-const options = mongoose.model("options", optionsSchema);
+const optionsGroup = mongoose.model("optionsGroup", optionGroupsSchema);
 
-module.exports = options;
+module.exports = optionsGroup;

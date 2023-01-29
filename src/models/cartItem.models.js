@@ -3,10 +3,14 @@ const mongoose = require("mongoose");
 
 const cartItemSchema = new mongoose.Schema({
     sessionId:{
-        type: Number  // here will be the relation with shopping-session
+        required: true,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "shoppingSession"
     },
     productId:{
-        type:Number 
+        required: true,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "product"
     },
     provider:{
         type: String

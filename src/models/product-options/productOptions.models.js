@@ -6,22 +6,28 @@ const proOptionsSchema = new mongoose.Schema({
         max:50
     },
     productId:{
-        type:Number    // Here will be relation with product
+        required: true,
+        type:mongoose.Schema.Types.ObjectId,  
+        ref : 'product'
     },
     optionId:{
-        type:Number    // Here will be relation with options
+        required: true,
+        type:mongoose.Schema.Types.ObjectId,   
+        ref : 'options'
     },
     optionsPriceIncrement:{
-        type:Number    
+        type:mongoose.Schema.Types.Decimal128 
     },
     optionsGroupId:{
-        type:Number    // Here will be relation with optionsGroup
+        required: true,
+        type:mongoose.Schema.Types.ObjectId,   
+        ref : 'optionsGroup'
     }
 },
 {
     timestamps:true
 })
 
-const productOptions = mongoose.model("options", proOptionsSchema);
+const productOptions = mongoose.model("productOptions", proOptionsSchema);
 
 module.exports = productOptions;

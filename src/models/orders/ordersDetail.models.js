@@ -4,19 +4,25 @@ const mongoose = require("mongoose");
 
 const orderDetailsSchema = new mongoose.Schema({
     orderId:{
-        type: Number  // here will be the relation with order
+        required: true,
+        type: mongoose.Schema.Types.ObjectId,  // here will be the relation with order
+        ref: 'orders'
     },
     productId:{
-        type:Number // here will be the relation with product
+        required: true,
+        type:mongoose.Schema.Types.ObjectId, // here will be the relation with product
+        ref: 'product'
     },
     paymentId:{
-        type:Number // here will be the relation with payment
+        required: true,
+        type:mongoose.Schema.Types.ObjectId, // here will be the relation with payment Details
+        ref: 'paymentDetails'
     },
     name:{
         type: String
     },
     price:{
-        type: Number
+        type: mongoose.Schema.Types.Decimal128
     },
     sku:{
         type:String

@@ -3,10 +3,12 @@ const mongoose = require("mongoose");
 
 const paymentDetailsSchema = new mongoose.Schema({
     orderId:{
-        type: Number  // here will be the relation with order
+        required: true,
+        type: mongoose.Schema.Types.ObjectId,  // here will be the relation with order
+        ref: 'orderDetails'
     },
     amount:{
-        type:Number 
+        type:mongoose.Schema.Types.Decimal128 
     },
     provider:{
         type: String

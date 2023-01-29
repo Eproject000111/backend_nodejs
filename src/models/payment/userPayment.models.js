@@ -3,7 +3,9 @@ const mongoose = require("mongoose");
 
 const userPaymentSchema = new mongoose.Schema({
     userId:{
-        type: Number  // here will be the relation with user
+        required: true,
+        type: mongoose.Schema.Types.ObjectId, // here is the relation with user
+        ref: 'user'
     },
     paymentType:{
         type:String 

@@ -13,12 +13,6 @@ const userSchema = new mongoose.Schema({
         min:10,
         max:255
     },
-    userName:{
-        type: String,
-        required: true,
-        min:10,
-        max:255
-    },
     email:{
       type: String,
       required:true,
@@ -31,10 +25,11 @@ const userSchema = new mongoose.Schema({
         min:6,
         max:255
     },
-    role_id:{
-        type:Number,
-        default:1,
-    },
+    // role_id:{
+    //     type:mongoose.Schema.Types.ObjectId,
+    //     ref:'Role',
+    //     default:1,
+    // },
     isDelete:{
         type:Number,
         default:0,
@@ -53,10 +48,10 @@ const userSchema = new mongoose.Schema({
         type:Date,
         default:Date.now()
     },
-    // address:[{
-    //     type:mongoose.Schema.Types.ObjectId,
-    //     ref:'Address'
-    // }]
+    address:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Address'
+    }
     
 },
 {

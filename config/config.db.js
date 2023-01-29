@@ -16,9 +16,6 @@ db.on("error", console.error.bind(console, "connection error: "));
 
 db.once("open", function () {
     // console.log("Connected successfully");
+    require('./load_db_Table');
     console.log("<----------------------server running --------------------->")
 });
-
-//Table Config
-
-require('./../src/models/user_info.models');

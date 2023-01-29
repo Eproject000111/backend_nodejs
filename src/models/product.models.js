@@ -14,7 +14,7 @@ const productSchema = new mongoose.Schema({
         max:255
     },
     price:{
-        type: Number
+        type: mongoose.Schema.Types.Decimal128
     },
     SKU:{
         type: String
@@ -27,6 +27,11 @@ const productSchema = new mongoose.Schema({
     },
     isLive:{
         type: Boolean
+    },
+    cat_id:{
+        required:true,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "category"
     }
 },
 {

@@ -1,0 +1,15 @@
+swagger: "2.0"
+info:
+  title: "Swagger UI docs"
+  description: "This is Ecommerce API Docs"
+  version: 1.0
+  contact: 
+    email: "ajaytripathi480@gmail.com"
+  liscence:
+    name: Apache 2.0
+    url: "http://apache.org/"
+  servers:
+    -url: "http://localhost:3000/"
+    description: this is my local server
+
+schemes: [http, https]

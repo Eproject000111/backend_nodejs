@@ -1,18 +1,20 @@
 const mongoose = require("mongoose");
 
 
-const userPaymentSchema = new mongoose.Schema({
+const shoppingSessionSchema = new mongoose.Schema({
     userId:{
-        type: Number  // here will be the relation with user
+        required:true,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "user"
     },
     total:{
-        type:Number 
+        type: mongoose.Schema.Types.Decimal128 
     }
 },
 {
     timestamps:true
 })
 
-const userPayment = mongoose.model("userPayment", userPaymentSchema);
+const shoppingSession = mongoose.model("shoppingSession", shoppingSessionSchema);
 
-module.exports = userPayment;
+module.exports = shoppingSession;

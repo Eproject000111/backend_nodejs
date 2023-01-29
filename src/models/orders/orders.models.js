@@ -1,11 +1,13 @@
 const mongoose = require("mongoose");
 
 const ordersSchema = new mongoose.Schema({
-    orderUserId:{
-        type: Number // here is the relation with user
+    userId:{
+        required: true,
+        type: mongoose.Schema.Types.ObjectId, // here is the relation with user
+        ref: 'user'
     },
     orderAmount:{
-        type: Number
+        type: mongoose.Schema.Types.Decimal128
     },
     orderShipName:{
         type: String
@@ -29,13 +31,13 @@ const ordersSchema = new mongoose.Schema({
         type: String
     },
     orderShipping:{
-        type: Number
+        type: mongoose.Schema.Types.Decimal128
     },
     orderTax:{
-        type: Number
+        type: mongoose.Schema.Types.Decimal128
     },
     orderEmail:{
-        type: Number
+        type: String
     },
     orderDate:{
         type:Date
