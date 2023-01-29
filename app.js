@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var bodyParser = require('body-parser')
 require('dotenv').config();
-require('./config/config.db');
+// require('./config/config.db');
 
 var swaggerUi = require('swagger-ui-express')
 // var YAML = require('yamljs');
