@@ -6,11 +6,21 @@ var logger = require('morgan');
 var bodyParser = require('body-parser')
 require('dotenv').config();
 var app = express();
+var cors = require('cors');
 
 var swaggerUi = require('swagger-ui-express')
 // var YAML = require('yamljs');
 // var swaggerJsDoc = YAML.load('./api.yaml')
 const swaggerJSDoc = require('swagger-jsdoc');
+
+
+var corsOption = {
+  origin: "*",
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true,
+  exposedHeaders: ['x-auth-token']
+};
+app.use(cors(corsOption));
 
 // Swagger
 const swaggerDefinition = {
