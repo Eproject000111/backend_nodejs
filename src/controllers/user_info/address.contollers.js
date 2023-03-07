@@ -20,8 +20,6 @@ const addingUserAddress = async (req,res)=>{
         let userAddress = new addressModel(params)
         let savedData = await userAddress.save();
 
-        console.log(savedData,"address Data")
-
         //Adding address id in the userTable to
         let data = await userModel.findByIdAndUpdate({_id:user},{$set:{address: savedData._id}}, {new:true});
 
