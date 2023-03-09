@@ -1,12 +1,13 @@
 const mongoose = require("mongoose");
+const config = require('./configEnv');
 
 mongoose.set('strictQuery', false);
 
 let option = {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    maxPoolSize: 10,
-    serverSelectionTimeoutMS: 3000
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  maxPoolSize: 10,
+  serverSelectionTimeoutMS: 5000
 }
 // mongoose.connect(process.env.MONGO_DEV_URI, option);
 
@@ -23,7 +24,7 @@ let option = {
 
 const connectDB = async () => {
     try {
-      const conn = await mongoose.connect(process.env.MONGO_DEV_URI, option);
+      const conn = await mongoose.connect(config.MONGO_DEV_URI, option);
       console.log(`MongoDB Connected: ${conn.connection.host}`);
     } catch (error) {
       console.log(error);
