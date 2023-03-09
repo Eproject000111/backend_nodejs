@@ -24,20 +24,67 @@ var corsOption = {
 app.use(cors(corsOption));
 
 // Swagger
-const swaggerDefinition = {
-  info: {
+// const swaggerDefinition = {
+//   info: {
+//     title: 'Node-Js-Auth API',
+//     version: '1.0.0',
+//     description: 'Documentation for Node-Js Auth backend API',
+//   },
+//   host: 'localhost:3000',
+//   basePath: '/',
+//   components: {
+//     securitySchemes: {
+//       bearerAuth: {
+//         type: "apiKey",
+//         name: "x-auth-token",
+//         scheme: "bearer",
+//         in: "header",
+//       },
+//     },
+//   },
+//   security: [
+//     {
+//       bearerAuth: [],
+//     },
+//   ],
+// };
+// const options = {
+//   swaggerDefinition,
+//   apis: ['./src/routes/*.js', './src/models/swaggerDef/definition.js'],
+// };
+const options = {
+  definition: {
+    openapi: "3.0.0",
+    info: {
     title: 'Node-Js-Auth API',
     version: '1.0.0',
     description: 'Documentation for Node-Js Auth backend API',
+    },
+    servers: [
+      {
+        url: "http://localhost:3000",
+      },
+    ],
+    components: {
+      securitySchemes: {
+        bearerAuth: {
+          type: "apiKey",
+          name: "x-auth-token",
+          scheme: "bearer",
+          in: "header",
+        },
+      },
+    },
+    security: [
+      {
+        bearerAuth: [],
+      },
+    ],
   },
-  host: 'localhost:3000',
-  basePath: '/',
-};
-const options = {
-  swaggerDefinition,
   apis: ['./src/routes/*.js', './src/models/swaggerDef/definition.js'],
-};
+}
 const swaggerSpec = swaggerJSDoc(options);
+
 // app.get('/swagger.json', (req, res) => {
 //   res.setHeader('Content-Type', 'application/json');
 //   res.send(swaggerSpec);
