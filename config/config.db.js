@@ -21,10 +21,12 @@ let option = {
 //     console.log("<----------------------server running --------------------->")
 // });
 
+const URI = process.env.NODE_ENV == 'poduction'? process.env.NODE_ENV : config.MONGO_DEV_URI;
+
 
 const connectDB = async () => {
     try {
-      const conn = await mongoose.connect(config.MONGO_DEV_URI, option);
+      const conn = await mongoose.connect(URI, option);
       console.log(`MongoDB Connected: ${conn.connection.host}`);
     } catch (error) {
       console.log(error);

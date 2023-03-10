@@ -28,7 +28,7 @@ app.set('port', port);
 
 let httpsOptions;
 
-if(config.SSL == 'true')
+if(process.env.SSL == 'true' || config.SSL)
 {
   httpsOptions = {
     key: fs.readFileSync(path.join(__dirname, "ssl", "key.pem")),
