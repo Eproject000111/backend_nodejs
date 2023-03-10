@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var fs = require('fs');
 const config = require('./config/configEnv');
+require('dotenv').config();
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var bodyParser = require('body-parser')
