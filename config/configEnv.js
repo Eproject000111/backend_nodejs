@@ -28,6 +28,8 @@ const testing = {
   SSL:"false"
 }
 
+console.log(process.env.NODE_ENV, 'configjsss')
+
 module.exports = (process.env.NODE_ENV == 'development')?
                   development:(process.env.NODE_ENV == 'production')?
                   production:(process.env.NODE_ENV == 'testing')?
