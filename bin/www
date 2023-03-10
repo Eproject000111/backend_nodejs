@@ -10,7 +10,7 @@ var http = require('http');
 var https = require('https');
 var fs = require('fs');
 var path = require('path');
-const config = require('../config/configEnv');
+// const config = require('../config/configEnv');
 
 // require('dotenv').config();
 var {connectDB} = require("./../config/config.db")
@@ -28,7 +28,7 @@ app.set('port', port);
 
 let httpsOptions;
 
-if(process.env.SSL == 'true' || config.SSL)
+if(process.env.SSL == 'true')
 {
   httpsOptions = {
     key: fs.readFileSync(path.join(__dirname, "ssl", "key.pem")),
