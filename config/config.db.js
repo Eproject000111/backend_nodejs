@@ -21,7 +21,7 @@ let option = {
 //     console.log("<----------------------server running --------------------->")
 // });
 
-const URI = process.env.NODE_ENV == 'poduction'? process.env.NODE_ENV : config.MONGO_DEV_URI;
+const URI = process.env.NODE_ENV == 'poduction'? process.env.MONGO_DEV_URI : config.MONGO_DEV_URI;
 
 
 const connectDB = async () => {
